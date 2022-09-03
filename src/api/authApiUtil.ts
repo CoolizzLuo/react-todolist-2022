@@ -1,24 +1,24 @@
 import { AxiosResponse } from 'axios';
 import { apiClient, BaseResponse } from './apiUtil';
 
-type SignInRequest = {
+export type SignInRequest = {
   email: string;
   password: string;
 };
 
-type SignInResponse = {
+export type SignInResponse = {
   message: string;
   nickname: string;
   email: string;
 };
 
-type SignUpRequest = {
+export type SignUpRequest = {
   email: string;
   nickname: string;
   password: string;
 };
 
-type SignUpResponse = {
+export type SignUpResponse = {
   message: string;
   nickname: string;
   email: string;
@@ -26,16 +26,14 @@ type SignUpResponse = {
 
 interface IAuthApiUtil {
   checkUser: () => Promise<AxiosResponse<BaseResponse>>;
-  signIn: (req: SignInRequest) => Promise<AxiosResponse<SignInResponse | BaseResponse>>;
+  signIn: (req: SignInRequest) => Promise<AxiosResponse<SignInResponse>>;
   signOut: () => Promise<AxiosResponse<BaseResponse>>;
-  register: (req: SignUpRequest) => Promise<AxiosResponse<SignUpResponse | BaseResponse>>;
+  register: (req: SignUpRequest) => Promise<AxiosResponse<SignUpResponse>>;
 }
 
-const authApiUtil: IAuthApiUtil = {
+export const authApiUtil: IAuthApiUtil = {
   checkUser: async () => await apiClient().get('/check'),
   signIn: async (req) => await apiClient().post('/users/sign_in', { user: req }),
   signOut: async () => await apiClient().delete('/users/sign_out'),
   register: async (req) => await apiClient().post('/users', { user: req }),
 };
-
-export { authApiUtil };

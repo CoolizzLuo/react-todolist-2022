@@ -19,12 +19,10 @@ interface ITodoApiUtil {
   toggleTodo: (id: string) => Promise<AxiosResponse<Todo | BaseResponse>>;
 }
 
-const todoApiUtil: ITodoApiUtil = {
+export const todoApiUtil: ITodoApiUtil = {
   getTodoList: async () => await apiClient().get('/todos'),
   addTodo: async (content) => await apiClient().post('/todos', { todo: { content } }),
   updateTodo: async (id, content) => await apiClient().put(`/todos/${id}`, { todo: { content } }),
   deleteTodo: async (id) => await apiClient().delete(`/todos/${id}`),
   toggleTodo: async (id) => await apiClient().patch(`/todos/${id}/toggle`),
 };
-
-export { todoApiUtil };

@@ -6,6 +6,7 @@ export const _axios: AxiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: {
     'content-type': 'application/json',
+    Accept: 'application/json',
   },
 });
 
