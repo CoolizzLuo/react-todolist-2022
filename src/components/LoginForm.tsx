@@ -26,7 +26,7 @@ type UserSubmitForm = {
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { setAuthState } = useAuthStore();
+  const { setAuthState, clearAuthState } = useAuthStore();
   const { handleError } = useError();
   const {
     register,
@@ -39,6 +39,7 @@ const LoginForm = () => {
 
   const onSubmit = async (data: UserSubmitForm) => {
     try {
+      clearAuthState();
       const res = await authApiUtil.signIn(data);
 
       setAuthState({
