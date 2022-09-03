@@ -1,39 +1,30 @@
-import React, { createContext, useState } from 'react';
+import create from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
-export type SignInInput = {
-  email: string;
-  password: string;
-};
-
-export type User = {
-  email: string;
+export type AuthState = {
   nickname: string;
-};
-
-export type Auth = {
+  email: string;
   token: string;
-  user: User;
 };
 
-interface AuthContextType {
-  auth: Auth;
-  signIn: (user: string, callback: VoidFunction) => void;
-  signOut: (callback: VoidFunction) => void;
-  checkUser: () => void;
+export interface IAuthStore {
+  authState: AuthState | null;
+  setAuthState: (authState: AuthState) => void;
+  isAuthorize: () => boolean;
 }
 
-const AuthContext = createContext<AuthContextType>(null!);
-
-// const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-//   const [user, setUser] = useState<User>(null!);
-
-//   const signIn = (input: SignInInput) => {
-//     setUser(newUser);
-//     callback();
-//   };
-
-//   const signOut = (callback: VoidFunction) => {
-//     setUser(null);
-//     callback();
-//   };
-// };
+export const useAuthStore = create<IAuthStore>()(
+  devtools(
+    persist(
+      (set, get) => ({
+        authState: null,
+        setAuthState: (authState) => set({ authState }),
+        isAuthorize: () => !!get().authState?.token,
+      }),
+      {
+        name: 'authStore',
+        getStorage: () => sessionStorage,
+      }
+    )
+  )
+);
