@@ -7,6 +7,7 @@ import { useAuthStore } from '../store/authStore';
 import useError from '../hooks/useError';
 import { authApiUtil } from '../api/authApiUtil';
 import { convertBoolean2Number } from '../utils';
+import titleImg from '../assets/login_title.png';
 
 const validationSchema = yup
   .object({
@@ -57,6 +58,7 @@ const LoginForm = () => {
 
   return (
     <FormSection onSubmit={handleSubmit(onSubmit)}>
+      <img className='md:hidden mt-6' src={titleImg} alt='title' width='300' />
       <FormTitle title='最實用的線上代辦事項服務' />
       <InputField>
         <InputLabel label='Email'>

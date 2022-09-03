@@ -8,7 +8,7 @@ const EntryPage = () => {
   const location = useLocation();
 
   return (
-    <div className='flex items-center space-x-24'>
+    <div className='flex items-center md:space-x-24'>
       <div className='md:flex flex-col items-center hidden'>
         <img className='mb-5' src={titleImg} alt='title' width='300' />
         <img src={logoImg} alt='title' width='400' />

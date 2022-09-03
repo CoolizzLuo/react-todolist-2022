@@ -6,6 +6,7 @@ import { FormSection, FormTitle, InputField, InputLabel, Input, ButtonField, But
 import useError from '../hooks/useError';
 import { authApiUtil } from '../api/authApiUtil';
 import { convertBoolean2Number } from '../utils';
+import titleImg from '../assets/login_title.png';
 
 const validationSchema = yup
   .object({
@@ -59,6 +60,7 @@ const RegisterForm = () => {
 
   return (
     <FormSection onSubmit={handleSubmit(onSubmit)}>
+      <img className='md:hidden  mt-6' src={titleImg} alt='title' width='300' />
       <FormTitle title='註冊帳號' />
       <InputField>
         <InputLabel label='Email'>

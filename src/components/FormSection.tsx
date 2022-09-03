@@ -7,7 +7,7 @@ interface FormSectionProps {
   children: React.ReactNode;
 }
 
-const FormSection = ({ onSubmit, className = 'flex flex-col space-y-2', children }: FormSectionProps) => (
+const FormSection = ({ onSubmit, className = 'flex flex-col md:space-y-2', children }: FormSectionProps) => (
   <form onSubmit={onSubmit} className={className}>
     {children}
   </form>
@@ -18,9 +18,10 @@ interface FormTitleProps {
   className?: string;
 }
 
-const FormTitle = ({ title, className = 'text-2xl font-bold pt-20 pb-4' }: FormTitleProps) => (
-  <h2 className={className}>{title}</h2>
-);
+const FormTitle = ({
+  title,
+  className = 'text-2xl md:text-left text-center font-bold md:pt-20 pb-4',
+}: FormTitleProps) => <h2 className={className}>{title}</h2>;
 
 interface InputFieldProps {
   children: React.ReactNode;
