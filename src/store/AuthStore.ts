@@ -10,6 +10,7 @@ export type AuthState = {
 export interface IAuthStore {
   authState: AuthState | null;
   setAuthState: (authState: AuthState) => void;
+  clearAuthState: () => void;
   isAuthorize: () => boolean;
 }
 
@@ -19,6 +20,7 @@ export const useAuthStore = create<IAuthStore>()(
       (set, get) => ({
         authState: null,
         setAuthState: (authState) => set({ authState }),
+        clearAuthState: () => set({ authState: null }),
         isAuthorize: () => !!get().authState?.token,
       }),
       {

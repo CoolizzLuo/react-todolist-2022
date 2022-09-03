@@ -13,8 +13,9 @@ import {
   Button,
   ErrorHint,
 } from '../components/FormSection';
-import { authApiUtil } from '../api/authApiUtil';
 import { useAuthStore } from '../store/authStore';
+import useError from '../hooks/useError';
+import { authApiUtil } from '../api/authApiUtil';
 import { convertBoolean2Number } from '../utils';
 import axios from 'axios';
 
@@ -36,6 +37,7 @@ type UserSubmitForm = {
 const LoginPage = () => {
   const navigate = useNavigate();
   const { setAuthState } = useAuthStore();
+  const { handleError } = useError();
   const {
     register,
     handleSubmit,
@@ -55,10 +57,8 @@ const LoginPage = () => {
       });
 
       navigate('/home');
-    } catch (err: any) {
-      if (axios.isAxiosError(err) && err.response) {
-        console.log((err.response.data as { error: string }).error);
-      }
+    } catch (error: any) {
+      handleError(error);
     }
   };
 

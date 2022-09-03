@@ -25,7 +25,7 @@ const authExpiredErrorCodes = [401, 0];
 const onFulfilled = (response: AxiosResponse) => response;
 const onRejected = (error: any) => {
   if (authExpiredErrorCodes.includes(error.response.status)) {
-    useAuthStore.setState({ authState: null });
+    useAuthStore.getState().clearAuthState();
   }
   return Promise.reject(error);
 };
