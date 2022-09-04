@@ -8,10 +8,9 @@ import useTodo from '../hooks/useTodo';
 import { useNavigate } from 'react-router-dom';
 import useQuery from '../hooks/useQuery';
 import { getKeyByValue } from '../utils';
-import emptyImg from '../assets/empty_logo.png';
 
 const HomePage = () => {
-  const { todoList, setTodoList, getTodoList, addTodo, updateTodo, deleteTodo, toggleTodo } = useTodo();
+  const { todoList, addTodo, updateTodo, deleteTodo, toggleTodo } = useTodo();
   const navigate = useNavigate();
   const action = useQuery('action');
 
@@ -49,7 +48,7 @@ const HomePage = () => {
           <TodoInput handleSubmit={addTodo} />
         </div>
         {!!todoList.length ? (
-          <div className='bg-white rounded-base overflow-hidden shadow-base'>
+          <div className='bg-white rounded-base overflow-hidden shadow-base relative z-10'>
             <TodoFilterButton />
             <div className='py-2 pl-6 sm:pr-2'>
               <ul className='max-h-[350px]  min-h-[350px] sm:max-h-[60vh]overflow-y-auto'>
@@ -67,9 +66,8 @@ const HomePage = () => {
             </div>
           </div>
         ) : (
-          <div className='flex flex-col items-center mt-20'>
-            <span className='text-bold text-xl mb-10'>目前尚無待辦事項</span>
-            <img className='w-[240px]' src={emptyImg} alt='title' />
+          <div className='flex flex-col items-center md:mt-20 mt-12'>
+            <span className='text-bold text-xl'>目前尚無待辦事項</span>
           </div>
         )}
       </div>

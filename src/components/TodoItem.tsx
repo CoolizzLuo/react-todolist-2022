@@ -10,6 +10,8 @@ interface TodoItemProps {
 }
 
 const TodoItem = ({ isDone, content, onToggleClick, onDeleteClick }: TodoItemProps) => {
+  const doneStyle = 'line-through italic text-[#9F9A91]';
+
   return (
     <li className='flex justify-between'>
       <div className='w-full border-b-[#EFEFEF] border-b-2 border-b-solid py-4 mr-4'>
@@ -17,7 +19,7 @@ const TodoItem = ({ isDone, content, onToggleClick, onDeleteClick }: TodoItemPro
           <button className='min-w-[20px]' onClick={onToggleClick}>
             <img src={isDone ? checkIcon : squareIcon} alt='square' />
           </button>
-          <p className='ml-4 line-clamp-2 text-ellipsis whitespace-nowrap overflow-hidden'>{content}</p>
+          <p className={`ml-4 ${isDone ? doneStyle : ''}`}>{content}</p>
         </div>
       </div>
       <button className='min-w-[15px] mr-3'>
