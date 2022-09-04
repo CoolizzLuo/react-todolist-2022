@@ -1,6 +1,5 @@
 import { AxiosResponse } from 'axios';
 import { apiClient, BaseResponse } from './apiUtil';
-import { Todo } from '../models/Todo';
 
 type TodoListResponse = {
   todos: Todo[];
@@ -12,9 +11,9 @@ type TodoResponse = {
 };
 
 interface ITodoApiUtil {
-  getTodoList: () => Promise<AxiosResponse<TodoListResponse | BaseResponse>>;
-  addTodo: (content: string) => Promise<AxiosResponse<TodoResponse | BaseResponse>>;
-  updateTodo: (id: string, content: string) => Promise<AxiosResponse<TodoResponse | BaseResponse>>;
+  getTodoList: () => Promise<AxiosResponse<TodoListResponse>>;
+  addTodo: (content: string) => Promise<AxiosResponse<TodoResponse>>;
+  updateTodo: (id: string, content: string) => Promise<AxiosResponse<TodoResponse>>;
   deleteTodo: (id: string) => Promise<AxiosResponse<BaseResponse>>;
   toggleTodo: (id: string) => Promise<AxiosResponse<Todo | BaseResponse>>;
 }

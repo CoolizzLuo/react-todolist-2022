@@ -1,9 +1,9 @@
 import { useLocation, Navigate, Outlet } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 
-type Props = {};
+interface RequireAuthProps {}
 
-const RequireAuth = (props: Props) => {
+const RequireAuth = (props: RequireAuthProps) => {
   const location = useLocation();
   const { isAuthorize } = useAuthStore();
 

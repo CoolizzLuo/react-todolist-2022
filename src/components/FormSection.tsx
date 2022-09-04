@@ -1,5 +1,4 @@
 import React from 'react';
-import { string } from 'yup';
 
 interface FormSectionProps {
   onSubmit?: () => void;
@@ -51,7 +50,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Input = React.forwardRef((props: InputProps, ref: React.Ref<HTMLInputElement>) => (
   <input
-    className={`px-4 py-3 rounded-[10px] w-[304px] outline-none border-2 ${
+    className={`px-4 py-3 rounded-[10px] w-[304px] outline-none shadow-base border-2 ${
       props.error ? 'border-[#D87355]' : 'border-white'
     }`}
     ref={ref}

@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { usePopupStore } from '../store/popupStore';
 
-type Props = {};
+interface PopupProps {}
 
-const Popup = (props: Props) => {
+const Popup = (props: PopupProps) => {
   const { popup, closePopup } = usePopupStore();
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const onBodyClick = (event: MouseEvent) => {
       if (ref.current?.contains(event.target as Node)) {

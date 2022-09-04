@@ -24,7 +24,7 @@ const validationSchema = yup
   })
   .required();
 
-type UserSubmitForm = {
+type RegisterFormData = {
   email: string;
   nickname: string;
   password: string;
@@ -39,11 +39,11 @@ const RegisterForm = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserSubmitForm>({
+  } = useForm<RegisterFormData>({
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data: UserSubmitForm) => {
+  const onSubmit = async (data: RegisterFormData) => {
     try {
       const { confirmPassword, ...req } = data;
       await authApiUtil.register(req);

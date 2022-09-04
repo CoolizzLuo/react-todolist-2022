@@ -9,6 +9,10 @@ const useError = (): Props => {
   const handleError = (error: any) => {
     closePopup();
     if (!axios.isAxiosError(error) || !error.response) {
+      if (error.message) {
+        openPopup(error.message);
+        return;
+      }
       openPopup('系統錯誤');
       return;
     }

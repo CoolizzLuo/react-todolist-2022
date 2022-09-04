@@ -19,12 +19,14 @@ const validationSchema = yup
   })
   .required();
 
-type UserSubmitForm = {
+type LoginFormData = {
   email: string;
   password: string;
 };
 
-const LoginForm = () => {
+interface LoginFormProps {}
+
+const LoginForm = (props: LoginFormProps) => {
   const navigate = useNavigate();
   const { setAuthState, clearAuthState } = useAuthStore();
   const { handleError } = useError();
@@ -33,11 +35,11 @@ const LoginForm = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserSubmitForm>({
+  } = useForm<LoginFormData>({
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data: UserSubmitForm) => {
+  const onSubmit = async (data: LoginFormData) => {
     try {
       clearAuthState();
       const res = await authApiUtil.signIn(data);
