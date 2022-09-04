@@ -9,8 +9,8 @@ const EntryPage = () => {
 
   return (
     <div className='bg-[#FFD370] h-[100vh] flex justify-center items-center'>
-      <div className='flex items-center md:space-x-24'>
-        <div className='hidden md:flex flex-col items-center '>
+      <div className='flex items-center sm:space-x-24'>
+        <div className='hidden sm:flex flex-col items-center '>
           <img className='mb-5' src={titleImg} alt='title' width='300' />
           <img src={logoImg} alt='title' width='400' />
         </div>

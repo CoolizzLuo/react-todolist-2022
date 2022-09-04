@@ -13,7 +13,7 @@ type TodoResponse = {
 interface ITodoApiUtil {
   getTodoList: () => Promise<AxiosResponse<TodoListResponse>>;
   addTodo: (content: string) => Promise<AxiosResponse<TodoResponse>>;
-  updateTodo: (id: string, content: string) => Promise<AxiosResponse<TodoResponse>>;
+  editTodo: (id: string, content: string) => Promise<AxiosResponse<TodoResponse>>;
   deleteTodo: (id: string) => Promise<AxiosResponse<BaseResponse>>;
   toggleTodo: (id: string) => Promise<AxiosResponse<Todo | BaseResponse>>;
 }
@@ -21,7 +21,7 @@ interface ITodoApiUtil {
 export const todoApiUtil: ITodoApiUtil = {
   getTodoList: async () => await apiClient().get('/todos'),
   addTodo: async (content) => await apiClient().post('/todos', { todo: { content } }),
-  updateTodo: async (id, content) => await apiClient().put(`/todos/${id}`, { todo: { content } }),
+  editTodo: async (id, content) => await apiClient().put(`/todos/${id}`, { todo: { content } }),
   deleteTodo: async (id) => await apiClient().delete(`/todos/${id}`),
   toggleTodo: async (id) => await apiClient().patch(`/todos/${id}/toggle`),
 };

@@ -60,7 +60,7 @@ const RegisterForm = () => {
 
   return (
     <FormSection onSubmit={handleSubmit(onSubmit)}>
-      <img className='md:hidden  mt-6' src={titleImg} alt='title' width='300' />
+      <img className='sm:hidden  mt-6' src={titleImg} alt='title' width='300' />
       <FormTitle title='註冊帳號' />
       <InputField>
         <InputLabel label='Email'>

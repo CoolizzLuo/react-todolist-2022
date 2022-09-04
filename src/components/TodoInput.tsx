@@ -17,6 +17,7 @@ const TodoInput = ({ handleSubmit }: TodoInputProps) => {
 
       if (!_value.trim()) throw Error('內容不可為空');
       await handleSubmit(_value);
+
       setValue('');
     } catch (error: any) {
       handleError(error);
@@ -34,7 +35,7 @@ const TodoInput = ({ handleSubmit }: TodoInputProps) => {
         onKeyDown={handleEscKey}
         autoFocus
       />
-      <button className='bg-[#333] min-w-[40px] h-[40px] m-1 md:text-[36px] text-[30px] leading-[40px] text-white rounded-base'>
+      <button className='bg-[#333] min-w-[40px] h-[40px] m-1 sm:text-[36px] text-[30px] leading-[40px] text-white rounded-base'>
         +
       </button>
     </form>

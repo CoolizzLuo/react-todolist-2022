@@ -61,7 +61,7 @@ const LoginForm = (props: LoginFormProps) => {
 
   return (
     <FormSection onSubmit={handleSubmit(onSubmit)}>
-      <img className='md:hidden mt-6' src={titleImg} alt='title' width='300' />
+      <img className='sm:hidden mt-6' src={titleImg} alt='title' width='300' />
       <FormTitle title='最實用的線上代辦事項服務' />
       <InputField>
         <InputLabel label='Email'>
