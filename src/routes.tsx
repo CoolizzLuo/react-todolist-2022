@@ -7,31 +7,31 @@ import HomePage from './pages/HomePage';
 export const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Layout />,
+    element: <RequireAuth />,
     children: [
       {
         path: '/',
-        element: <RequireAuth />,
+        element: <Layout />,
         children: [
           {
-            path: '/Home',
+            path: '/',
             element: <HomePage />,
           },
         ],
       },
-      {
-        path: '/Login',
-        element: <EntryPage />,
-      },
-      {
-        path: '/Register',
-        element: <EntryPage />,
-      },
-      {
-        path: '/*',
-        element: <h2>404 Not Found Page</h2>,
-      },
     ],
+  },
+  {
+    path: 'Login',
+    element: <EntryPage />,
+  },
+  {
+    path: 'Register',
+    element: <EntryPage />,
+  },
+  {
+    path: '*',
+    element: <h2>404 Not Found Page</h2>,
   },
 ];
 

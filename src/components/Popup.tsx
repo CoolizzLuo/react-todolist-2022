@@ -13,9 +13,7 @@ const Popup = (props: Props) => {
       }
       closePopup();
     };
-
     document.body.addEventListener('click', onBodyClick, { capture: true });
-
     return () => {
       document.body.removeEventListener('click', onBodyClick, { capture: true });
     };

@@ -48,7 +48,7 @@ const LoginForm = () => {
         token: res.headers.authorization,
       });
 
-      navigate('/home');
+      navigate('/');
     } catch (error: any) {
       reset({
         password: '',
