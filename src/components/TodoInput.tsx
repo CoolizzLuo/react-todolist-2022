@@ -24,10 +24,7 @@ const TodoInput = ({ handleSubmit }: TodoInputProps) => {
   };
 
   return (
-    <form
-      className='md:w-[500px] w-[310px] bg-white flex rounded-[10px] overflow-hidden shadow-base'
-      onSubmit={onSubmit}
-    >
+    <form className='bg-white flex rounded-base overflow-hidden shadow-base' onSubmit={onSubmit}>
       <input
         className='w-full px-4 py-3 outline-none'
         type='text'
@@ -35,8 +32,9 @@ const TodoInput = ({ handleSubmit }: TodoInputProps) => {
         value={value}
         onChange={handleChange}
         onKeyDown={handleEscKey}
+        autoFocus
       />
-      <button className='bg-[#333] w-[40px] h-[40px] m-1 md:text-[36px] text-[30px] md:leading-[36px] leading-[30px] text-white rounded-[10px]'>
+      <button className='bg-[#333] min-w-[40px] h-[40px] m-1 md:text-[36px] text-[30px] leading-[40px] text-white rounded-base'>
         +
       </button>
     </form>
