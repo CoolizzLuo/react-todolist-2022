@@ -7,7 +7,9 @@ import { TodoListAction } from '../enum/TodoListAction';
 import useTodo from '../hooks/useTodo';
 import { useNavigate } from 'react-router-dom';
 import useQuery from '../hooks/useQuery';
-import { getKeyByValue } from '../utils';
+import { createGetObjKeyByValue } from '../utils';
+
+const getEnumKey = createGetObjKeyByValue(TodoListAction);
 
 const HomePage = () => {
   const { todoList, addTodo, updateTodo, deleteTodo, toggleTodo } = useTodo();
@@ -16,11 +18,11 @@ const HomePage = () => {
 
   const filterTodoList = useMemo<Todo[]>(() => {
     switch (action?.toLocaleLowerCase()) {
-      case getKeyByValue(TodoListAction, TodoListAction.done):
+      case getEnumKey(TodoListAction.done):
         return todoList.filter((todo) => !!todo.completed_at);
-      case getKeyByValue(TodoListAction, TodoListAction.todo):
+      case getEnumKey(TodoListAction.todo):
         return todoList.filter((todo) => !todo.completed_at);
-      case getKeyByValue(TodoListAction, TodoListAction.all):
+      case getEnumKey(TodoListAction.all):
       default:
         return todoList;
     }
@@ -51,13 +53,14 @@ const HomePage = () => {
           <div className='bg-white rounded-base overflow-hidden shadow-base relative z-10'>
             <TodoFilterButton />
             <div className='py-2 pl-6 sm:pr-2'>
-              <ul className='max-h-[350px]  min-h-[350px] sm:max-h-[60vh]overflow-y-auto'>
+              <ul className='max-h-[350px]  min-h-[350px] sm:max-h-[60vh] overflow-y-auto'>
                 {filterTodoList.map(({ id, content, completed_at }) => (
                   <TodoItem
                     key={id}
                     isDone={!!completed_at}
                     content={content}
                     onToggleClick={() => toggleTodo(id)}
+                    onEditClick={() => {}}
                     onDeleteClick={() => deleteTodo(id)}
                   />
                 ))}

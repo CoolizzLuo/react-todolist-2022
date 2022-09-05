@@ -6,14 +6,15 @@ interface TodoItemProps {
   isDone: boolean;
   content: string;
   onToggleClick: () => void;
+  onEditClick: () => void;
   onDeleteClick: () => void;
 }
 
-const TodoItem = ({ isDone, content, onToggleClick, onDeleteClick }: TodoItemProps) => {
+const TodoItem = ({ isDone, content, onToggleClick, onEditClick, onDeleteClick }: TodoItemProps) => {
   const doneStyle = 'line-through italic text-[#9F9A91]';
 
   return (
-    <li className='flex justify-between'>
+    <li className='flex justify-between cursor-text-'>
       <div className='w-full border-b-[#EFEFEF] border-b-2 border-b-solid py-4 mr-4'>
         <div className='flex'>
           <button className='min-w-[20px]' onClick={onToggleClick}>
