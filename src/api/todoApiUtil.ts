@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { apiClient, BaseResponse } from './apiUtil';
+import { apiClient } from './apiUtil';
 
 type TodoListResponse = {
   todos: Todo[];
@@ -19,9 +19,9 @@ interface ITodoApiUtil {
 }
 
 export const todoApiUtil: ITodoApiUtil = {
-  getTodoList: async () => await apiClient().get('/todos'),
-  addTodo: async (content) => await apiClient().post('/todos', { todo: { content } }),
-  editTodo: async (id, content) => await apiClient().put(`/todos/${id}`, { todo: { content } }),
-  deleteTodo: async (id) => await apiClient().delete(`/todos/${id}`),
-  toggleTodo: async (id) => await apiClient().patch(`/todos/${id}/toggle`),
+  getTodoList: async () => await apiClient.get('/todos'),
+  addTodo: async (content) => await apiClient.post('/todos', { todo: { content } }),
+  editTodo: async (id, content) => await apiClient.put(`/todos/${id}`, { todo: { content } }),
+  deleteTodo: async (id) => await apiClient.delete(`/todos/${id}`),
+  toggleTodo: async (id) => await apiClient.patch(`/todos/${id}/toggle`),
 };

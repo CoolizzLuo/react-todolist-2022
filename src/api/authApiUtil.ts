@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { apiClient, BaseResponse } from './apiUtil';
+import { apiClient } from './apiUtil';
 
 export type SignInRequest = {
   email: string;
@@ -32,8 +32,8 @@ interface IAuthApiUtil {
 }
 
 export const authApiUtil: IAuthApiUtil = {
-  checkUser: async () => await apiClient().get('/check'),
-  signIn: async (req) => await apiClient().post('/users/sign_in', { user: req }),
-  signOut: async () => await apiClient().delete('/users/sign_out'),
-  register: async (req) => await apiClient().post('/users', { user: req }),
+  checkUser: async () => await apiClient.get('/check'),
+  signIn: async (req) => await apiClient.post('/users/sign_in', { user: req }),
+  signOut: async () => await apiClient.delete('/users/sign_out'),
+  register: async (req) => await apiClient.post('/users', { user: req }),
 };

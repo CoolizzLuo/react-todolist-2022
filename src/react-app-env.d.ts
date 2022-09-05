@@ -5,3 +5,7 @@ type Todo = {
   content: string;
   completed_at: string | null;
 };
+
+type BaseResponse = {
+  message: string;
+};
