@@ -24,6 +24,7 @@
 - Axios
 - React
 - React-router-dom
+- react-spinners
 - React-hook-form
 - TypeScript
 - Yup

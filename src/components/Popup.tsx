@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { usePopupStore } from '../store/popupStore';
-import { ReactComponent as Loading } from '../assets/Rolling.svg';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { PopupType } from '../enum/PopupType';
 
 interface PopupProps {}
 
@@ -26,8 +27,8 @@ const Popup = (props: PopupProps) => {
   return (
     <div className='absolute top-0 bottom-0 left-0 right-0 bg-[#333A] z-50'>
       <div className='flex justify-center items-center h-full'>
-        {popup === 'loading' ? (
-          <Loading className='w-[50px] h-[50px]' />
+        {popup === PopupType.loading ? (
+          <ClipLoader />
         ) : (
           <div
             ref={ref}

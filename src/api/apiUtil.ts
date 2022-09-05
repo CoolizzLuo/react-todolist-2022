@@ -1,7 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { useAuthStore } from '../store/authStore';
 import { usePopupStore } from '../store/popupStore';
 import { BASE_URL } from '../constant';
+import { PopupType } from '../enum/PopupType';
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -19,7 +20,7 @@ const onSend = (config: AxiosRequestConfig) => {
     config.headers['Authorization'] = token || '';
   }
 
-  usePopupStore.setState({ popup: 'loading' });
+  usePopupStore.setState({ popup: PopupType.loading });
   return config;
 };
 
