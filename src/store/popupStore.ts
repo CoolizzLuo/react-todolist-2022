@@ -11,3 +11,5 @@ export const usePopupStore = create<IPopupStore>((set) => ({
   openPopup: (message) => set({ popup: message }),
   closePopup: () => set({ popup: null }),
 }));
+
+export default usePopupStore;

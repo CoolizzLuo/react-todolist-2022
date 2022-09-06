@@ -1,5 +1,5 @@
 import titleImg from '../assets/login_title.png';
-import { useAuthStore } from '../store/authStore';
+import useAuthStore from '../store/authStore';
 
 interface HeaderProps {}
 

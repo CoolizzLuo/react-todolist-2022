@@ -30,3 +30,5 @@ export const useAuthStore = create<IAuthStore>()(
     )
   )
 );
+
+export default useAuthStore;

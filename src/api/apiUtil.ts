@@ -1,8 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { useAuthStore } from '../store/authStore';
-import { usePopupStore } from '../store/popupStore';
+import useAuthStore from '../store/authStore';
+import useLoadingStore from '../store/loadingStore';
 import { BASE_URL } from '../constant';
-import { PopupType } from '../enum/PopupType';
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -20,16 +19,16 @@ const onSend = (config: AxiosRequestConfig) => {
     config.headers['Authorization'] = token || '';
   }
 
-  usePopupStore.setState({ popup: PopupType.loading });
+  useLoadingStore.getState().openLoading();
   return config;
 };
 
 const onFulfilled = (response: AxiosResponse) => {
-  usePopupStore.getState().closePopup();
+  useLoadingStore.getState().closeLoading();
   return response;
 };
 const onRejected = (error: any) => {
-  usePopupStore.getState().closePopup();
+  useLoadingStore.getState().closeLoading();
   if (authExpiredErrorCodes.includes(error.response.status)) {
     useAuthStore.getState().clearAuthState();
   }

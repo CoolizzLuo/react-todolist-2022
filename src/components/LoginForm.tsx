@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { FormSection, FormTitle, InputField, InputLabel, Input, ButtonField, Button, ErrorHint } from './FormSection';
-import { useAuthStore } from '../store/authStore';
+import useAuthStore from '../store/authStore';
 import useError from '../hooks/useError';
 import { authApiUtil } from '../api/authApiUtil';
 import { convertBoolean2Number } from '../utils';

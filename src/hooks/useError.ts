@@ -1,4 +1,4 @@
-import { usePopupStore } from '../store/popupStore';
+import usePopupStore from '../store/popupStore';
 import axios from 'axios';
 
 type Props = { handleError: (file: any) => void };

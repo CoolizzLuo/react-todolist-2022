@@ -1,7 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { usePopupStore } from '../store/popupStore';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { PopupType } from '../enum/PopupType';
+import usePopupStore from '../store/popupStore';
 
 interface PopupProps {}
 
@@ -25,21 +23,17 @@ const Popup = (props: PopupProps) => {
   if (!popup) return <></>;
 
   return (
-    <div className='absolute top-0 bottom-0 left-0 right-0 bg-[#333A] z-50'>
+    <div className='absolute top-0 bottom-0 left-0 right-0 bg-[#333A] z-40'>
       <div className='flex justify-center items-center h-full'>
-        {popup === PopupType.loading ? (
-          <ClipLoader />
-        ) : (
-          <div
-            ref={ref}
-            className='relative w-[350px]  sm:w-[450px] h-[200px] bg-[#eee] rounded-2xl flex justify-center items-center font-bold pb-10'
-          >
-            <p className=' text-xl text-[#e94a4a]'>{popup}</p>
-            <button className='absolute bottom-2 py-2 px-4 text-white bg-[#1385dc] rounded-lg ' onClick={closePopup}>
-              OKay
-            </button>
-          </div>
-        )}
+        <div
+          ref={ref}
+          className='relative w-[350px]  sm:w-[450px] h-[200px] bg-[#eee] rounded-2xl flex justify-center items-center font-bold pb-10'
+        >
+          <p className=' text-xl text-[#e94a4a]'>{popup}</p>
+          <button className='absolute bottom-2 py-2 px-4 text-white bg-[#1385dc] rounded-lg ' onClick={closePopup}>
+            OKay
+          </button>
+        </div>
       </div>
     </div>
   );
