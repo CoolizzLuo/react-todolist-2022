@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/react-todolist-2022/static/css/main.0311c5a5.css",
+    "main.js": "/react-todolist-2022/static/js/main.a0afe6d3.js",
+    "static/media/login_logo.png": "/react-todolist-2022/static/media/login_logo.28736a6c790001b90389.png",
+    "static/media/empty_logo.png": "/react-todolist-2022/static/media/empty_logo.98eb650b54e0c217af6f.png",
+    "static/media/closeIcon.svg": "/react-todolist-2022/static/media/closeIcon.56b79577a438f651415b0afc3b26a1f3.svg",
+    "index.html": "/react-todolist-2022/index.html",
+    "static/media/checkIcon.svg": "/react-todolist-2022/static/media/checkIcon.5b51c12bd01d9b1115f592db5ee389c1.svg",
+    "static/media/squareIcon.svg": "/react-todolist-2022/static/media/squareIcon.8892bedc5e3fe8fb016804fb3e212592.svg",
+    "main.0311c5a5.css.map": "/react-todolist-2022/static/css/main.0311c5a5.css.map",
+    "main.a0afe6d3.js.map": "/react-todolist-2022/static/js/main.a0afe6d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0311c5a5.css",
+    "static/js/main.a0afe6d3.js"
+  ]
+}
