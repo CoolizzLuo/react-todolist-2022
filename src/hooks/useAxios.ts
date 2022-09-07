@@ -27,7 +27,6 @@ export const useAxios = () => {
         ...requestConfig,
         signal: ctrl.signal,
       });
-      console.log(res);
       setResponse(res.data);
     } catch (err: unknown) {
       if (isAxiosError<BaseResponse>(err)) {
@@ -42,6 +41,6 @@ export const useAxios = () => {
   useEffect(() => {
     return () => controller && controller.abort();
   }, [controller]);
-  return [response, error, loading, axiosFetch];
+  return [response, error, loading, axiosFetch] as const;
 };
 export default useAxios;
